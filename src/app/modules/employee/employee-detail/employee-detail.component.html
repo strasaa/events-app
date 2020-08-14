@@ -1,0 +1,47 @@
+<div fxLayout="column">
+  <div class="background">
+    <div class="h" fxLayoutAlign="start center">
+      <h1> {{ this.id ? 'Employees card' : 'New employee' }} </h1>
+    </div>
+
+    <mat-card class="mat-elevation-z4 employee-card">
+      <form (ngSubmit)="save(employeeForm.value)" [formGroup]="employeeForm">
+
+        <div fxLayout="row" fxLayoutAlign="space-between">
+          <mat-form-field appearance="outline" fxFlex="69">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title">
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="space-between">
+          <mat-form-field appearance="outline" fxFlex="49">
+            <mat-label>First name</mat-label>
+            <input matInput formControlName="firstName" required>
+            <mat-icon matSuffix class="grey-icon">account_circle</mat-icon>
+            <mat-error>Required field, allowed length is 2 to 120 characters</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" fxFlex="49">
+            <mat-label>Surname</mat-label>
+            <input matInput formControlName="surname" required>
+            <mat-icon matSuffix class="grey-icon">account_circle</mat-icon>
+            <mat-error>Required field, allowed length is 2 to 120 characters</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="space-between">
+          <button type="submit" mat-raised-button color="accent" [disabled]="employeeForm.invalid">
+            Save
+          </button>
+          <button type="button" (click)="delete()" mat-raised-button color="warn" [disabled]="employeeForm.invalid">
+            Delete
+          </button>
+        </div>
+      </form>
+    </mat-card>
+
+    <app-employee-events *ngIf="this.id" [employeeId]="this.id"></app-employee-events>
+
+  </div>
+</div>
+

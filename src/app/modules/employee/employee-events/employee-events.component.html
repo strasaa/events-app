@@ -1,0 +1,49 @@
+<mat-card class="mat-elevation-z4 employee-card">
+
+  <form (ngSubmit)="filter(eventsForm.value)" [formGroup]="eventsForm">
+
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+      <mat-form-field appearance="outline" fxFlex="35">
+        <mat-label>Start date</mat-label>
+        <input matInput [matDatepicker]="pickerStart" formControlName="pickerStart">
+        <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+        <mat-datepicker #pickerStart ></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="outline" fxFlex="35">
+        <mat-label>End date</mat-label>
+        <input matInput [matDatepicker]="pickerEnd" formControlName="pickerEnd">
+        <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+        <mat-datepicker #pickerEnd></mat-datepicker>
+      </mat-form-field>
+      <div fxFlex="19" fxLayout="column" fxLayoutAlign="space-around center" >
+      <button type="submit" mat-raised-button color="accent" >
+        Filter
+      </button>
+      </div>
+    </div>
+  </form>
+
+  <mat-table #table [dataSource]="dataSource">
+
+    <!-- From Column -->
+    <ng-container matColumnDef="startTime">
+      <mat-header-cell *matHeaderCellDef> Start</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.startTime | date: 'dd/MM/yyyy HH:mm:ss'}} </mat-cell>
+    </ng-container>
+
+    <!-- To Column -->
+    <ng-container matColumnDef="endTime">
+      <mat-header-cell *matHeaderCellDef> End</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.endTime | date: 'dd/MM/yyyy HH:mm:ss'}} </mat-cell>
+    </ng-container>
+
+    <!-- Note Column -->
+    <ng-container matColumnDef="note">
+      <mat-header-cell *matHeaderCellDef> Note</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.note}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</mat-card>

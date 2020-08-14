@@ -1,0 +1,12 @@
+<mat-toolbar class="mat-elevation-z2" fxFlex="1 1 auto">
+  <div fxLayout="row" fxFill fxLayoutAlign="space-between center">
+    <div>
+      <button *ngFor="let shortcut of shortcuts"
+              mat-button
+              [matTooltip]="shortcut.tooltip"
+              [routerLink]="shortcut.route">
+        <mat-icon>{{shortcut.icon}}</mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,41 @@
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+@import 'app-theme';
+
+$app-color: #0277bd;
+
+* {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.large-icon {
+  color: $app-color;
+  font-size: 40px;
+}
+
+.grey-icon {
+  color: grey !important;
+}
+
+.background {
+  background-color: #f5f5f5;
+}
+
+.h {
+  background-color: #039be5 !important;
+  color: #fff !important;
+  height: 100px;
+  padding: 24px;
+}
+
+.employee-card {
+  padding: 12px;
+  margin: 24px;
+  max-width: 1024px;
+  min-width: 320px;
+}
+
+.red-snackbar {
+  background: #d50000;
+}

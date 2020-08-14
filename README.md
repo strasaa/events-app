@@ -51,7 +51,7 @@ It is used for showing employee detail and possible update.
 Employee could be deleted by *Delete* button and same page is used with blank form if new employee is created. 
 This functionality is accessible with toolbar shortcut. 
 
-![Employee detail page](https://github.com/strasaa/events-app/blob/master/employee-detail.png?raw=true)
+![Employee detail page](https://github.com/strasaa/events-app/blob/master/employee-detail-page.png?raw=true)
 
 Part of the Employees card is the events overview. 
 It shows all events of the employee in the interval. 
